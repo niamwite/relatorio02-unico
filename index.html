@@ -686,6 +686,113 @@
             color: var(--gray);
         }
 
+        /* Ads Section */
+        .ads-section {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(239, 68, 68, 0.1));
+            border: 2px solid var(--accent);
+            border-radius: 24px;
+            padding: 60px 40px;
+            margin: 80px 0;
+        }
+
+        .ads-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .ads-section > p {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        .ads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .ad-item {
+            background: var(--dark-light);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid rgba(245, 158, 11, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .ad-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.2);
+        }
+
+        .ad-item h3 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ad-item .icon {
+            font-size: 1.5rem;
+        }
+
+        .ad-video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .ad-video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ad-audio-wrapper {
+            background: var(--dark);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .ad-audio-wrapper audio {
+            width: 100%;
+        }
+
+        .ad-item p {
+            text-align: left;
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .ad-badge {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
         @media (max-width: 768px) {
             .videos-grid-compact {
                 grid-template-columns: 1fr;
@@ -700,6 +807,19 @@
             }
 
             .videos-full-section h2 {
+                font-size: 2rem;
+            }
+
+            .ads-section {
+                padding: 40px 20px;
+            }
+
+            .ads-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .ads-section h2 {
                 font-size: 2rem;
             }
         }
@@ -1001,6 +1121,39 @@
                 </div>
             </div>
         </section>
+
+        <!-- Ads Section -->
+        <section class="ads-section">
+            <h2>🎯 Base dos Anúncios</h2>
+            <p>Materiais criativos para utilização nas campanhas</p>
+            <div class="ads-grid">
+                <!-- Vídeo do Ad -->
+                <div class="ad-item">
+                    <span class="ad-badge">📹 Vídeo</span>
+                    <h3><span class="icon">🎬</span> Vídeo do Anúncio</h3>
+                    <div class="ad-video-wrapper">
+                        <video controls preload="auto" playsinline poster="">
+                            <source src="ads/video-ad.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                    <p>Vídeo estratégico para campanhas de TikTok Ads e Google Ads. Formato horizontal (16:9) ideal para maximizar o alcance.</p>
+                </div>
+
+                <!-- Áudio do Ad -->
+                <div class="ad-item">
+                    <span class="ad-badge">🎵 Áudio</span>
+                    <h3><span class="icon">🎧</span> Áudio do Anúncio</h3>
+                    <div class="ad-audio-wrapper">
+                        <audio controls preload="auto">
+                            <source src="ads/Plano da Boiadeira.mp3" type="audio/mpeg">
+                            Seu navegador não suporta áudio.
+                        </audio>
+                    </div>
+                    <p>"Plano da Boiadeira" - Áudio estratégico para utilização como trilha sonora ou voiceover nos anúncios de consórcio.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -1036,7 +1189,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.card, .ponta-card, .cost-card, .video-card-full').forEach(el => {
+        document.querySelectorAll('.card, .ponta-card, .cost-card, .video-card-full, .ad-item').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
