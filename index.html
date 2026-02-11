@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Estratégico: Aquisição de Leads</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #06b6d4;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --gray: #64748b;
+            --light: #f1f5f9;
+            --danger: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Golden Tip Card */
+        .golden-tip {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(217, 119, 6, 0.1));
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .golden-tip::before {
+            content: '💡';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 150px;
+            opacity: 0.1;
+        }
+
+        .golden-tip h2 {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .golden-tip p {
+            font-size: 1.1rem;
+            color: #e2e8f0;
+        }
+
+        /* Strategy Section */
+        .strategy-section {
+            margin: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Cards Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--dark-light);
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Profile List */
+        .profile-list {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .profile-item {
+            background: rgba(99, 102, 241, 0.1);
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .profile-item:hover {
+            background: rgba(99, 102, 241, 0.2);
+        }
+
+        .profile-item .handle {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .profile-item .desc {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Three Pontas Section */
+        .pontas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .ponta-card {
+            background: var(--dark-light);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(99, 102, 241, 0.15);
+        }
+
+        .ponta-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .ponta-card.instagram::before {
+            background: linear-gradient(90deg, #E4405F, #C13584, #833AB4);
+        }
+
+        .ponta-card.tiktok::before {
+            background: linear-gradient(90deg, #00f2ea, #ff0050);
+        }
+
+        .ponta-card.google::before {
+            background: linear-gradient(90deg, #4285f4, #34a853, #fbbc05);
+        }
+
+        .ponta-number {
+            font-size: 4rem;
+            font-weight: 800;
+            opacity: 0.1;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .ponta-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ponta-card ul {
+            list-style: none;
+        }
+
+        .ponta-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: var(--gray);
+        }
+
+        .ponta-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* Videos Section Inside TikTok Card */
+        .tiktok-videos {
+            margin-top: 30px;
+        }
+
+        .tiktok-videos h4 {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .videos-grid-compact {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card-compact {
+            background: var(--dark);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .video-card-compact:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Videos Section Full */
+        .videos-full-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(6, 182, 212, 0.15));
+            border-radius: 24px;
+            padding: 60px 40px;
+            margin: 80px 0;
+        }
+
+        .videos-full-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .videos-full-section p {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        .videos-grid-full {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .video-card-full {
+            background: var(--dark-light);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .video-card-full:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .video-wrapper-full {
+            position: relative;
+            width: 100%;
+            padding-top: 177.78%;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .video-wrapper-full video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-info-full {
+            padding: 20px;
+        }
+
+        .video-info-full h5 {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .video-info-full p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .video-wrapper-compact {
+            position: relative;
+            width: 100%;
+            padding-top: 177.78%;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .video-wrapper-compact video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--dark-light), var(--dark));
+            color: var(--gray);
+            font-size: 2rem;
+            z-index: 1;
+        }
+
+        .video-wrapper-compact video[src=""] + .video-fallback,
+        .video-wrapper-compact:has(video[src=""]) .video-fallback {
+            display: flex;
+        }
+
+        .video-fallback span {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .video-fallback p {
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        .video-info-compact {
+            padding: 12px;
+            background: var(--dark-light);
+        }
+
+        .video-info-compact h5 {
+            font-size: 0.95rem;
+            color: #fff;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .video-info-compact p {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Costs Section */
+        .costs-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.1));
+            border-radius: 24px;
+            padding: 50px;
+            margin: 80px 0;
+        }
+
+        .costs-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .costs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .cost-card {
+            background: var(--dark-light);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cost-card.google {
+            border-color: #4285f4;
+            background: linear-gradient(135deg, rgba(66, 133, 244, 0.1), var(--dark-light));
+        }
+
+        .cost-card.tiktok {
+            border-color: #ff0050;
+            background: linear-gradient(135deg, rgba(255, 0, 80, 0.1), var(--dark-light));
+        }
+
+        .cost-card.scraping {
+            border-color: var(--danger);
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), var(--dark-light));
+        }
+
+        .cost-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .cost-card h3 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .cost-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 16px 0;
+        }
+
+        .cost-bonus {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        .cost-skull {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--danger);
+            font-size: 1.1rem;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        .skull-emoji {
+            font-size: 1.5rem;
+        }
+
+        /* Automation Section */
+        .automation {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.1));
+            border-radius: 24px;
+            padding: 50px;
+            margin: 80px 0;
+        }
+
+        .automation h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .tags-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .tag-card {
+            background: var(--dark);
+            border-radius: 16px;
+            padding: 24px;
+            border-left: 4px solid;
+        }
+
+        .tag-card.agro { border-color: #10b981; }
+        .tag-card.pobre { border-color: #f59e0b; }
+        .tag-card.business { border-color: #6366f1; }
+
+        .tag-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .tag-card .source {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 12px;
+        }
+
+        .tag-card .message {
+            font-size: 0.95rem;
+            color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+            margin-top: 80px;
+        }
+
+        footer p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .golden-tip {
+                padding: 24px;
+            }
+
+            .pontas {
+                grid-template-columns: 1fr;
+            }
+
+            .automation {
+                padding: 30px 20px;
+            }
+
+            .costs-section {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            text-align: center;
+            margin-top: 40px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .scroll-indicator span {
+            font-size: 2rem;
+            color: var(--gray);
+        }
+
+        @media (max-width: 768px) {
+            .videos-grid-compact {
+                grid-template-columns: 1fr;
+            }
+
+            .videos-full-section {
+                padding: 40px 20px;
+            }
+
+            .videos-grid-full {
+                grid-template-columns: 1fr;
+            }
+
+            .videos-full-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">📊 Relatório Estratégico</div>
+                <div class="badge">v2.0</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Aquisição de Leads em Três Pontas</h1>
+            <p class="hero-subtitle">Estratégia completa de Inteligência, Escala e Cerco Digital para o mercado de Consórcio</p>
+            <div class="scroll-indicator">
+                <span>↓</span>
+            </div>
+        </section>
+
+        <section class="golden-tip animate">
+            <h2>💡 A Dica de Ouro</h2>
+            <p>No nicho de consórcio, o segredo não é seguir só quem vende consórcio, mas seguir quem fala de <strong>planejamento</strong> (investimentos) e <strong>bens de desejo</strong> (carros, casas, tratores). O cliente do <strong>@eduardofeldberg</strong> quer sair do aluguel; o cliente do <strong>@primosagro</strong> quer um trator novo. É aí que você entra com a solução.</p>
+        </section>
+
+        <section class="strategy-section">
+            <div class="section-header">
+                <h2>🏗️ 1ª Ponta: Inteligência e Scraping</h2>
+                <p>Extração segmentada do Instagram para alimentar o Supabase</p>
+            </div>
+
+            <div class="grid">
+                <div class="card animate delay-1">
+                    <div class="card-icon">🚜</div>
+                    <h3>A. O Desejo</h3>
+                    <p>Ativos e Maquinário</p>
+                    <ul class="profile-list">
+                        <li class="profile-item">
+                            <span class="handle">@agrooficial</span>
+                            <span class="desc">Vitrine de máquinas</span>
+                        </li>
+                        <li class="profile-item">
+                            <span class="handle">@primos.agro</span>
+                            <span class="desc">Dia a dia do produtor</span>
+                        </li>
+                        <li class="profile-item">
+                            <span class="handle">@jovensdoagro</span>
+                            <span class="desc">Sucessores e modernização</span>
+                        </li>
+                        <li class="profile-item">
+                            <span class="handle">@camilatelles</span>
+                            <span class="desc">Defesa do Agro</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card animate delay-2">
+                    <div class="card-icon">💰</div>
+                    <h3>B. O Planejamento</h3>
+                    <p>A Solução Financeira</p>
+                    <ul class="profile-list">
+                        <li class="profile-item">
+                            <span class="handle">@eduardofeldberg</span>
+                            <span class="desc">Lead nº 1 em conversão ⭐</span>
+                        </li>
+                        <li class="profile-item">
+                            <span class="handle">@nathfinancas</span>
+                            <span class="desc">Educação financeira</span>
+                        </li>
+                        <li class="profile-item">
+                            <span class="handle">@faveladoinvestidor</span>
+                            <span class="desc">Patrimônio e saída da locação</span>
+                        </li>
+                        <li class="profile-item">
+                            <span class="handle">@caroldias</span>
+                            <span class="desc">Viver de renda</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card animate delay-3">
+                    <div class="card-icon">📈</div>
+                    <h3>C. A Visão</h3>
+                    <p>Empreendedorismo e Expansão</p>
+                    <ul class="profile-list">
+                        <li class="profile-item">
+                            <span class="handle">@geracaodevalor</span>
+                            <span class="desc">Empresários e sede própria</span>
+                        </li>
+                        <li class="profile-item">
+                            <span class="handle">@rick_chesther</span>
+                            <span class="desc">Vencer na vida</span>
+                        </li>
+                        <li class="profile-item">
+                            <span class="handle">@geraldorufino</span>
+                            <span class="desc">Donos de transportadoras</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card animate delay-4">
+                    <div class="card-icon">🎯</div>
+                    <h3>D. A Técnica</h3>
+                    <p>Referência do Setor</p>
+                    <ul class="profile-list">
+                        <li class="profile-item">
+                            <span class="handle">@andersonocorretor</span>
+                            <span class="desc">Corretor especializado</span>
+                        </li>
+                        <li class="profile-item">
+                            <span class="handle">@abacweb</span>
+                            <span class="desc">Comparação de taxas</span>
+                        </li>
+                        <li class="profile-item">
+                            <span class="handle">@consorciei</span>
+                            <span class="desc">Plataforma de consórcio</span>
+                        </li>
+                        <li class="profile-item">
+                            <span class="handle">@dan.silva</span>
+                            <span class="desc">Referência técnica</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="pontas">
+            <div class="ponta-card instagram">
+                <span class="ponta-number">1</span>
+                <h3>📱 TikTok Ads</h3>
+                <p style="color: var(--gray); margin-bottom: 20px;">Escala de Audiência via Lookalike</p>
+                <ul>
+                    <li><strong>Cruzamento de Dados:</strong> Suba lista de e-mails/telefones do @eduardofeldberg e @primos.agro</li>
+                    <li><strong>Lookalike 1%:</strong> Algoritmo busca perfis com mesmo comportamento: "Odeiam juros e precisam de bens pesados"</li>
+                    <li><strong>Criativo Estratégico:</strong> Vídeo comparativo "Financiamento vs. Consórcio com Lance Embutido"</li>
+                    <li><strong>Estética:</strong> Use estilo "planilha" que o público do Eduardo Feldberg já confia</li>
+                </ul>
+            </div>
+
+            <div class="ponta-card tiktok">
+                <span class="ponta-number">2</span>
+                <h3>🌐 Google Ad Network</h3>
+                <p style="color: var(--gray); margin-bottom: 20px;">Cerco Digital - Captura na dor técnica</p>
+                <ul>
+                    <li><strong>Segmentação em Apps:</strong> Cotação de Grãos, Clima Tempo Rural, Calculadora de Financiamento</li>
+                    <li><strong>Simulador BNDES:</strong> Capture quem está pesquisando financiamento rural</li>
+                    <li><strong>Lógica da Dica de Ouro:</strong> Produtor olhando cotação da soja vê: "Pague seu trator novo com o lucro da safra, não com juros para o banco"</li>
+                    <li><strong>Timing Perfeito:</strong> Intercepta no momento exato da dor financeira</li>
+                </ul>
+            </div>
+
+            <div class="ponta-card google">
+                <span class="ponta-number">3</span>
+                <h3>⚙️ Automação</h3>
+                <p style="color: var(--gray); margin-bottom: 20px;">Integração Scraping → Supabase</p>
+                <ul>
+                    <li><strong>Workflow Contínuo:</strong> Extração automática de perfis segmentados</li>
+                    <li><strong>Enriquecimento:</strong> Cruzamento de dados com tags personalizadas</li>
+                    <li><strong>Disparo Automático:</strong> Listas prontas para campanhas</li>
+                    <li><strong>Monitoramento:</strong> Dashboards em tempo real de performance</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Costs Section -->
+        <section class="costs-section">
+            <h2>💰 Custos Estimados</h2>
+            <div class="costs-grid">
+                <div class="cost-card google">
+                    <div class="cost-icon">🔍</div>
+                    <h3>Google Ads (Novo)</h3>
+                    <p style="color: var(--gray); font-size: 0.9rem;">Investimento inicial</p>
+                    <div class="cost-value">R$ 300</div>
+                    <div class="cost-bonus">🎁 +R$ 300 de limite grátis</div>
+                    <p style="color: var(--gray); font-size: 0.85rem; margin-top: 12px;">Total de R$ 600 em mídia</p>
+                </div>
+
+                <div class="cost-card tiktok">
+                    <div class="cost-icon">🎵</div>
+                    <h3>TikTok Ads</h3>
+                    <p style="color: var(--gray); font-size: 0.9rem;">Investimento inicial</p>
+                    <div class="cost-value">R$ 520</div>
+                    <div class="cost-bonus">🎁 +R$ 520 de bônus</div>
+                    <p style="color: var(--gray); font-size: 0.85rem; margin-top: 12px;">Total de R$ 1.040 em mídia</p>
+                </div>
+
+                <div class="cost-card scraping">
+                    <div class="cost-icon">💀</div>
+                    <h3>Scraping</h3>
+                    <p style="color: var(--gray); font-size: 0.9rem;">Automação de dados</p>
+                    <div class="cost-value">R$ 250</div>
+                    <div class="cost-skull">
+                        <span class="skull-emoji">☠️</span>
+                        <span>Risco Alto</span>
+                    </div>
+                    <p style="color: var(--danger); font-size: 0.85rem; margin-top: 12px;">Zone cinza - Procedimento com cautela</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Videos Section Full -->
+        <section class="videos-full-section">
+            <h2>🎬 Referências Visuais</h2>
+            <p>Vídeos estratégicos para implementação da estratégia</p>
+            <div class="videos-grid-full">
+                <div class="video-card-full">
+                    <div class="video-wrapper-full">
+                        <video controls preload="auto" playsinline>
+                            <source src="videos/ssstik.io_@cortesdeconsorcio_1770798422516.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                    <div class="video-info-full">
+                        <h5>Cortes de Consórcio</h5>
+                        <p>Conteúdo estratégico sobre o mercado de consórcio</p>
+                    </div>
+                </div>
+
+                <div class="video-card-full">
+                    <div class="video-wrapper-full">
+                        <video controls preload="auto" playsinline>
+                            <source src="videos/ssstik.io_@primosagrofa_1770798993723.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                    <div class="video-info-full">
+                        <h5>Primos Agro</h5>
+                        <p>Dia a dia do produtor - Lead qualificado</p>
+                    </div>
+                </div>
+
+                <div class="video-card-full">
+                    <div class="video-wrapper-full">
+                        <video controls preload="auto" playsinline>
+                            <source src="videos/ssstik.io_@piazada_da_agricultura__1770798895042.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                    <div class="video-info-full">
+                        <h5>Piazada da Agricultura</h5>
+                        <p>Conteúdo do produtor rural para produtor rural</p>
+                    </div>
+                </div>
+
+                <div class="video-card-full">
+                    <div class="video-wrapper-full">
+                        <video controls preload="auto" playsinline>
+                            <source src="videos/ssstik.io_@julianaleite217_1770799720398.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                    <div class="video-info-full">
+                        <h5>Juliana Leite</h5>
+                        <p>Referência em educação financeira</p>
+                    </div>
+                </div>
+
+                <div class="video-card-full">
+                    <div class="video-wrapper-full">
+                        <video controls preload="auto" playsinline>
+                            <source src="videos/ssstik.io_@roberson.teixeira_1770798740701.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                    <div class="video-info-full">
+                        <h5>Roberson Teixeira</h5>
+                        <p>Conteúdo de empreendedorismo e negócios</p>
+                    </div>
+                </div>
+
+                <div class="video-card-full">
+                    <div class="video-wrapper-full">
+                        <video controls preload="auto" playsinline>
+                            <source src="videos/ssstik.io_@sheipados_oficial3_1770798467425.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                    <div class="video-info-full">
+                        <h5>Sheipados Oficial</h5>
+                        <p>Conteúdo especializado em agronegócio</p>
+                    </div>
+                </div>
+
+                <div class="video-card-full">
+                    <div class="video-wrapper-full">
+                        <video controls preload="auto" playsinline>
+                            <source src="videos/ssstik.io_@ueliconvenanciooficial_1770799584250.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                    <div class="video-info-full">
+                        <h5>Ueliconvenancio</h5>
+                        <p>Educação e planejamento financeiro</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>UIU - Unidade de Inteligência Único | Relatório Estratégico de Aquisição de Leads</p>
+            <p style="margin-top: 8px; font-size: 0.85rem;">Consórcio & Automação | Dados atualizados com estratégia de três pontas</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll animation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card, .ponta-card, .cost-card, .video-card-full').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
